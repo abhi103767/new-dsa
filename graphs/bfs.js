@@ -15,11 +15,6 @@ console.log({adjList})
 
 
 
-const  addEdge = (N1,N2) => {
-    adjList[N1].push(N2)
-    adjList[N2].push(N1)
-    return 
-}
 
 addEdge(1,5)
 addEdge(2,3)
