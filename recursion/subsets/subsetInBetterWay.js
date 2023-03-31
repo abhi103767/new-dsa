@@ -9,16 +9,18 @@ alph  = 'ghifj'
 function subsets(str,newStr){
     // console.log(str)
     if(str.length === 0){
-        // console.log(str)
-        console.log(newStr)
-        return
+       
+        let ans = [newStr]
+        return [ans]
     }
    let ch = str[0];
     // console.log(str)
-    subsets(str.substring(1),newStr)
+   let left =  subsets(str.substring(1),newStr)
    
-    subsets(str.substring(1), newStr + ch)
+  let right =  subsets(str.substring(1), newStr + ch)
+
+  return [...left,...right]
 
 }
 
-subsets(str,'')
+console.log(subsets(str,''))

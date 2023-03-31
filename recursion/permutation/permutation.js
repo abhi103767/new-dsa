@@ -3,7 +3,7 @@
 
 
 
-function permute(p,up){
+function permuteList(p,up){
     if(up.length === 0){
         return [p]
     }
@@ -15,11 +15,32 @@ function permute(p,up){
         let f = p.substring(0,i);
         let s = p.substring(i,p.length)
 
-     ans = [...ans,...permute(f+ch+s,up.substring(1))]
+     ans = [...ans,...permuteList(f+ch+s,up.substring(1))]
     }
   
 return ans
 }
 
 const a = 'abcdgd'
-console.log(permute('','abcd'))
+// console.log(permuteList('','abcd'))
+
+
+
+function permuteCount(p,up){
+    if(up.length === 0){
+        return 1
+    }
+
+  let ch = up[0]
+  let count = 0
+//   console.log({ch})
+    for (let i = 0;i <= p.length; i++){
+        let f = p.substring(0,i);
+        let s = p.substring(i,p.length)
+       count = count + permuteCount(f+ch+s,up.substring(1))
+    }
+  
+return count
+}
+
+console.log(permuteCount('','abc1234'))
